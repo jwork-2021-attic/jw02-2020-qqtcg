@@ -1,0 +1,68 @@
+@startuml list
+
+class BubbleSort{
+    -int[] needSort;
+    -String process = "";
+    swap();
+    -sortSon();
+}
+
+interface Sort{
+    load(int[] sortedElement);
+    sort();
+    String getProcess();
+}
+
+class QuickSort{
+    -int[] needSort;
+    -String process = "";
+    -quickSort();
+    -getStandardIndex();
+    swap();
+}
+
+class Matrix{
+    -Position[] matrix;
+    set();
+    -int len;
+    Position[] getLine();
+    int[] prepareToSort();
+    String toString();
+    
+}
+
+class Position{
+    -SmallMonster sm;
+    belongTo();
+    SmallMonster thereIs();
+    exchangeWith();
+}
+
+class SmallMonster{
+    Position p;
+    -final int sign;
+    -final int r;
+    -final int g;
+    -final int b;
+    getSign();
+    setPosition();
+    Position getPoition();
+    String toString();
+}
+
+class snake{
+    -String order = "";
+    Sort skill;
+    -String log = "";
+    startSort();
+    analyze();
+    
+}
+
+BubbleSort ..|> Sort
+QuickSort ..|> Sort
+Matrix o-- Position
+snake o-- QuickSort
+SmallMonster o-- Position
+
+@enduml
