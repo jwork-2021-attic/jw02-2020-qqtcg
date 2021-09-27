@@ -1,0 +1,25 @@
+@startuml Scene
+
+actor Gezzer as gezzer
+actor Gourd as gourd
+participant Line as line
+participant Sorter as sorter
+participant BufferedWriter as writer
+
+gourd -> line : 加入
+gourd -> line : 加入
+gourd -> line : 加入
+gourd -> line : 加入
+gourd -> line : 加入
+gourd -> line : 加入
+gourd -> line : 加入
+sorter <- gezzer: 掌握
+sorter -> line : 排序
+sorter -> gezzer : 返回过程信息
+gezzer -> writer : 传递排序方案
+writer -> writer : 方案写入文件
+
+
+
+
+@enduml

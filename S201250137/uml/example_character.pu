@@ -1,0 +1,71 @@
+@startuml w02
+
+
+class Sorter {
+    load(int[] elements);
+    sort();
+    String getPlan();
+}
+
+class BubbleSorter {
+    -int[] a;
+    load(int[] a);
+    swap();
+    -String plan;
+    sort();
+    String getPlan();
+}
+
+class Line {
+    -Position[] line;
+    Linable get(int i);
+    String toString();
+    Linable[] toArray();
+
+}
+
+interface Linable {
+    setPosition(Position position);
+
+    Position getPosition();
+
+    int getValue();
+}
+
+enum Gourd {
+    -final int r;
+    -final int g;
+    -final int b;
+    -Position position;
+    static Gourd getGourdByRank();
+    int rank();
+    String toString();
+    setPosition();
+    Position getPosition();
+    swapPosition(Gourd another);
+    int getValue();
+}
+
+class Geezer {
+    -static Geezer theGezzer;
+    static Geezer getTheGeezer();
+    Sorter sorter;
+    serSorter();
+    String lineUp();
+    -String[] parsePlan();
+    -excute();
+}
+
+class Position {
+    Linable linable;
+    serLinable();
+}
+
+Line +-- Position
+
+Geezer o-- BubbleSorter
+Gourd ..|> Linable
+Gourd o-- Position
+BubbleSorter --|> Sorter
+
+@enduml
